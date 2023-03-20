@@ -33,11 +33,10 @@ if(bullet<1 || playerNumber>5){
 
 //실탄 배열에 랜덤으로 넣기
 //처음에 배열을 모두 false로 처리했다가 랜덤 함수에서 나오는 숫자의 인덱스를 true로 변환
-//===============================여기서부터 다시 보기=====================================================
 var bulletArray = new Array(5).fill(false); //실탄 배열을 flase로 초기화하고 
-var bulletNumberCount=0;//실탄 개수 카운트
+var bulletNumberCount=0; //실탄 개수 카운트
 while(true){
-    var bulletNumber=Math.floor(Math.random()*(5)); //실탄을 넣을 인덱스 번호를 랜덤으로 정하고(0~4)
+    var bulletNumber=Math.floor(Math.random()*(bulletArray.length)); //실탄을 넣을 인덱스 번호를 랜덤으로 정하고(0~4)
     // alert(bulletNumber);
     if(bulletArray[bulletNumber]===false){ //랜덤으로 정해진 인덱스 번호의 요소가 false이면
         bulletArray[bulletNumber]=true; //true로 바꿈
@@ -53,24 +52,24 @@ var GameStartNumber=Math.floor(Math.random()*(playerNumber));
 alert(`총을 받았습니다. ${playerArray[GameStartNumber]}부터 시작합니다. ${GameStartNumber}`);
 
 //게임 시작
-var Gameplayer=GameStartNumber;
-
-
+//===============================여기서부터 다시 보기=====================================================
 var playerArrayCopy=playerArray;
 var survivor=playerNumber;
-for(var i=0; i<playerArray.length; i++){
-        prompt(`[${playerArray[Gameplayer]}님의 턴!] 탄창을 회전합니다\n#엔터를누르면 격발합니다.`);
+for(var i=0; i<bulletArray.length; i++){
+        var gamePlayer=playerArray[GameStartNumber];//현재 게임 플레이어
+        prompt(`[GameStartNumber=${GameStartNumber} ${gamePlayer}님의 턴!] 탄창을 회전합니다\n엔터를누르면 격발합니다.`);
 
-    if(bulletArray[i]===true){
-        playerArrayCopy.splice(Gameplayer,1);
-        alert(`빵!! [${playerArray[Gameplayer]}]님 사망...RIP\n남은 인원으로 게임을 계속합니다.)\n생존한 인원 : ${playerArrayCopy}`);
+    if(bulletArray[i]===true){ //총알이 있으면
+        playerArrayCopy.splice(GameStartNumber,1); //현재 게임 플레이어 제거
+        alert(`[GameStartNumber=${GameStartNumber} 빵!! [${gamePlayer}]님 사망...RIP\n남은 인원으로 게임을 계속합니다.\n생존한 인원 : ${playerArrayCopy}`);
         survivor--;
     } 
-    else if(bulletArray[i]===false){
-        alert(`...휴~~ 살았습니다.`);
+    else if(bulletArray[i]===false){ //총알이 없으면 생존
+        alert(`[GameStartNumber=${GameStartNumber} ...휴~~ [${gamePlayer}]님은 살았습니다.`);
     }
-    Gameplayer++;
-    if(Gameplayer>playerNumber) Gameplayer=0;
+    GameStartNumber+=1;
+    if(GameStartNumber>playerArray.length-1) GameStartNumber=0;
+    prompt(`[GameStartNumber=${GameStartNumber}`);
 }
 
 //게임 종류 후
