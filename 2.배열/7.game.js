@@ -53,7 +53,7 @@ alert(`총을 받았습니다. ${playerArray[GameStartNumber]}부터 시작합�
 
 //게임 시작
 //===============================여기서부터 다시 보기=====================================================
-var playerArrayCopy=playerArray;
+var playerArrayCopy = [...playerArray]; //playerArray 복사
 var survivor=playerNumber;
 for(var i=0; i<bulletArray.length; i++){
         var gamePlayer=playerArray[GameStartNumber];//현재 게임 플레이어

@@ -8,7 +8,7 @@
 
 
 // 스프레드(ES6)
-function addAll(...numbers){ //... 붙이면 매개변수에서 배열처리 안해도 알아서 배열로 처리해줌
+function addAll(...numbers){ //... 붙이면 매개변수에서 배열처리 안해도 알아서 배열로 처리해줌 -> numbers[1,2,3,4]되는거임.
     var total=0;
     for(var n of numbers){
         total+=n;

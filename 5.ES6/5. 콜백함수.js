@@ -45,7 +45,6 @@ showOddOREvenNumber(10,1);
 //코드를 함수에 감싸서 줌
 
 function showNumber(n,code){
-
     for(let i=1; i<=n;i++){ //공통 특징 : for문 돌림
         if(code(i)){ //파라미터로 제어하는데 제한이 있으니까 
             console.log(i);
@@ -53,13 +52,30 @@ function showNumber(n,code){
     }
 }
 
+
 function test(n) {
     return n % 3 === 0 ;
 }
-
 // showNumber(10, function(n){return n % 3 === 0 ;});
 // showNumber(10, n=> n % 3 === 0 );
 showNumber(10, test);
+
+/*
+function showNumber2(n,code){
+    let total=0;
+    for(let i=1; i<=n;i++){ //공통 특징 : for문 돌림
+        total=code(i,total);
+        
+    }
+    return total;
+}
+function test2(n,total){
+    return total+=n;
+}
+var aaa=showNumber2(10,test2);
+console.log(aaa);
+*/
+
 
 function showMessage(message,howTo){
     //공통기능
@@ -73,10 +89,4 @@ function showMessage(message,howTo){
     },500 );
     //개별기능
     howTo(message);
-
-   
 }
-
-showMessage(`ㅎㅎㅎㅎ`, function(m){
-    alert(m);
-});

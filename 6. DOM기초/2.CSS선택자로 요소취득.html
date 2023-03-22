@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li class="fr">사과</li>
+        <li class="fr banana">바나나</li>
+        <li class="fr grape">포도</li>
+        <li class="fr">복숭아</li>
+    </ul>
+
+    <script>
+        const $grape= document.querySelector('.grape'); //css문법대로 사용해야함 ex) class면 . / id면 #
+        // const $grape = document.querySelector('#fruits li:n')             
+        $grape.textContent = "맛있는 포도";
+
+
+        //선택자에 해당하는 모든 요소를 취득
+        const elements = document.querySelectorAll('.fr'); //유사배열. 배열관련 함수 사용 할 수 없음.
+        console.log(elements);
+
+        //배열처럼 쓸수도 있고
+        elements[0].style.background = 'red'; 
+        for(const $li of elements) {
+            $li.style.border = '1px dashed skyblue';
+        }
+
+        //객체처럼 쓸수도 있음
+        // elements.age=10;
+        // console.log(elements);
+
+        // 유사배열은 보통 찐배열로 복사해서 사용함
+        const elements = [...document.querySelectorAll('.fr')];
+        console.log(elements);
+        elements.push('자몽');
+
+        const [a,b,c,d] = [...document.querySelectorAll('li')];
+        d.textContent='어피치';
+
+        elements.forEach($li =>{
+            $li.style.color = 'blue';
+        });
+
+    </script>
+
+</body>
+</html>
