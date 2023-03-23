@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .btn{
+            width:150px;
+            height:50px;
+            background: rgb(143, 44, 44);
+            color:bisque;
+            font-size: 1.3em;
+        }
+
+        #drop-content a{
+            display: block;
+            width: 160px;
+            height:50px;
+            background: lightgrey;
+            margin-top: 5px;
+            font-size: 1.3em;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="dropdown">
+        <button class="btn">Drop</button>
+        <div id="drop-content">
+            <a href="#">Menu1</a>
+            <a href="#">Menu2</a>
+            <a href="#">Menu3</a>
+            <a href="#">Menu4</a>
+            <a href="#">Menu5</a>
+        </div>
+    </div>
+
+    <script>
+        
+        const $dropButton=document.querySelector('.dropdown');
+        const $menu = document.getElementById('drop-content');
+
+        $dropButton.onclick=function(){
+            $menu.style.display='none';
+        }
+    </script>
+
+
+
+</body>
+</html>

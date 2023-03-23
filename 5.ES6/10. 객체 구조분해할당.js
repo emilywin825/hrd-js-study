@@ -31,3 +31,8 @@ const copyEmp = {
     empName:'망둥어',
 }; //원본, 사본 개별적
 // 디스트럭처링은 사본을 복사하는거라 변경해도 원본에 적용 x
+
+const arr=[1,2,3,4,5];
+let sum=0;
+arr.forEach(hap=>sum+=hap);
+console.log(sum);

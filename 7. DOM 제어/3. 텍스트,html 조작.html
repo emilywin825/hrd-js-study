@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #greet span {
+            color: red;
+        }
+        #greet::before {
+            content: "what's up!";
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="greet">
+        Hello <span>World!</span>
+    </div>
+
+    <script>
+        const $greet = document.getElementById('greet');
+        console.log($greet.textContent); // Hello World!
+
+        //$greet.textContent='안녕하세요!'; 
+        //console.log($greet.textContent); //안녕하세요!
+        // textContent : 정확히 타겟팅해서 사용해야됨
+        // 블록요소 내부에 텍스트를 넣을때는 인라인요소에서 한번 감싸주는게 편의성에서 좋음(css,js 둘다에게)
+        $greet.innerHTML='<span>안녕</span>하세요!'; //태그 안에 있는 텍스트를 인식시키려면 innerHTML로 해야됨.textContent 안됨.
+        
+        //모든 자식태그를 삭제
+        $greet.innerHTML=''; //전체 삭제기능 이렇게 사용할 수 있음
+
+        //자식 태그를 추가
+        $greet.innerHTML+='<span>메롱메롱</span>';
+    </script>
+</body>
+</html>

@@ -16,15 +16,16 @@
     </ul>
 
     <script>
-        // console.log(document.body.firstElementChild);
+        console.log(document.body.firstElementChild);
+        
         //관례적으로 변수명 앞에 $붙이면 개발자들이 태그라고 인식
         const $banana = document.getElementById('banana'); //banana === 객체 //jquery, react에서 태그 가져오는거 생각안나면 이거 사용가능
         // === const $banana = document.querySelector('#banana'); //속도는 getElementById가 조오금 빠름
         console.log($banana.attributes.id.value);
-        // banana.attributes.id.value='수고요~';
+        // banana.attributes.id.value='수고요~'; //id가 수고요로 바뀜
         $banana.style.background = 'red';
         //id가 grape인 요소노드 취득 후 배경색상을 violet으로 가로길이를 fit-content로 변경
-        const $grape=getElementById(grape);
+        const $grape=document.getElementById('grape');
         $grape.style.backgroundColor='violet';
         $grape.style.width='fit-content';
     </script>

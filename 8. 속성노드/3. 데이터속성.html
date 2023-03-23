@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="users">
+        <!-- 띄어쓰기 - 로 사용 / 데이터 속성 : dataset에서 관리 -->
+        <li data-user-number="4321" data-role="common">김철수</li> 
+        <li data-user-number="9999" data-role="admin">박영희</li>  
+    </ul>
+
+    <script>
+        const [$u1, $u2] = [...document.querySelector('.users').children];
+
+        const KimNumber = +$u1.dataset.userNumber;
+        console.log(KimNumber + 10);
+
+        const role = $u2.dataset.role;
+        console.log(role);
+
+        $ul.dataset.role='gold';
+        $ul.dataset.hahaHoho='하하호호';
+        delete $ul.dataset.role;
+    </script>
+
+</body>
+</html>

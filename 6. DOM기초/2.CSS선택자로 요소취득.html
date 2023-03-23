@@ -16,9 +16,8 @@
 
     <script>
         const $grape= document.querySelector('.grape'); //css문법대로 사용해야함 ex) class면 . / id면 #
-        // const $grape = document.querySelector('#fruits li:n')             
+        // const $grape = document.querySelector('#fruits li:nth-child(odd)');             
         $grape.textContent = "맛있는 포도";
-
 
         //선택자에 해당하는 모든 요소를 취득
         const elements = document.querySelectorAll('.fr'); //유사배열. 배열관련 함수 사용 할 수 없음.
@@ -42,11 +41,9 @@
         const [a,b,c,d] = [...document.querySelectorAll('li')];
         d.textContent='어피치';
 
-        elements.forEach($li =>{
+        elements.forEach($li =>{ //찐 배열로 복사했으므로 배열 함수 사용 가능
             $li.style.color = 'blue';
         });
-
     </script>
-
 </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li>사과</li>
+        <li>바나나</li>
+        <li>포도</li>
+    </ul>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+
+        //새로운 li 생성
+        const $newLi = $fruits.firstElementChild.cloneNode(); //복사
+        $newLi.textContent = '복숭아';
+        console.log($newLi);
+
+        //노드 교체 (new(새롭게 추가될 요소), old)
+        //li태그를 span으로 변경해야 할 경우 / sapn이 input으로 변경 ex) 
+        $fruits.replaceChild($newLi,$fruits.firstElementChild);
+
+        //노드 삭제
+        $fruits.removeChild($fruits.lastElementChild);
+
+        //자식 노드 전체 삭제
+        // $fruits.innerHTML='';
+
+        const children=[...$fruits.children];
+        // for(const $li of children) {
+        //     $fruits.removeChild($li);
+        // }
+        children.forEach($li=>$fruits.removeChild($li));
+    </script>
+</body>
+</html>

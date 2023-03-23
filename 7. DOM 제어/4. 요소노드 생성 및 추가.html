@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li>사과</li>
+    </ul>
+    <script>  
+   
+        //태그이름과 텍스트를 전달받으면 태그를 생성하는 함수
+        function makeTag(tagName, text=''){
+            const $newTag = document.createElement(tagName);
+            if(text) $newTag.textContent=text; //텍스트가 없으면 falshy 처리되서 실행 x. 하나라도 있으면 truthy이므로 실행
+        }
+        
+        //부모태그를 알려주면 자식을 추가해주는 함수
+        function appendNewTag($parent,$target){
+            $parent.appendChild($target);
+        }
+        
+        //만들면서 추가하는 함수 //^^^^^^^^^^^^^^^^^^^^^^^
+        function append($parent, tagName, text='') { //객체로 받는 방법도 생각해보기. append(items) 이렇게 items에 객체로 한번에 받기
+            appendNewTag($parent, makeTag(tagName, text));
+        }
+
+// ================================================ 여기가 제일 중요
+        //추가,삭제 원하면 부모에게 부탁(타겟팅)해야함
+        const $fruits = document.getElementById('fruits');
+        
+        //li 태그 생성 : <li></li> 이것까지 만든거
+        const $newLi = document.createElement('li');
+
+        //텍스트 추가 : <li>바나나</li>
+        $newLi.textContent = '바나나';
+
+        //새로운노드를 자식으로 추가하는 명령
+        $fruits.appendChild($newLi);
+// ================================================
+        
+        const fruitNames = [ 
+            '바나나', '딸기', '포도'
+            ,'자몽', '오렌지' ,'레몬'
+        ];
+
+        fruitNames.forEach(fn => {
+            append({
+                $parent:$fruits,
+                tagName:'li',
+                text:fn
+            });
+        });
+    </script>
+</body>
+</html>
