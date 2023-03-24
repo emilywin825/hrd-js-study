@@ -14,7 +14,7 @@
 
 </head>
 <body>
-    <button id="hider" >텍스트 숨기기!!</button>
+    <button id="hider">텍스트 숨기기!!</button>
 
     <div class="text">안녕하세요~~</div>
     <script>
@@ -26,10 +26,10 @@
         const $text = document.querySelector('.text');
 
         $button.onclick = function() {
-            const CLASSNAME='hide'
+            const CLASSNAME='hide';
 
-            if($button.classList.contains(CLASSNAME)){
-                $button.innerHTML='ggg';
+            if($text.classList.contains(CLASSNAME)){
+                $button.innerHTML='텍스트 숨기기!!';
                 $text.classList.remove(CLASSNAME);
             }else{
                 $button.innerHTML='텍스트 보이기!';

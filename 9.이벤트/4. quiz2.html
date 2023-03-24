@@ -6,12 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-
+        .title{
+            display: flex;
+        }
+        .triangle {
+            width: 0px;
+            height: 0px;
+            border-left: 12px solid green;
+            border-top: 9px solid transparent;
+            border-bottom: 9px solid transparent;
+            margin-right: 10px;
+            }
+            .rotate{
+                rotate: 90deg;
+            }
+            .hide{
+                display: none;
+            }
     </style>
 </head>
 <body>
     <div id="lunches" class="menu">
-        <span class="title">추천 메뉴(Click Me!)</span>
+        <span class="title">
+            <div class="triangle"></div>추천 메뉴(Click Me!)
+        </span>
             <ul>
                 <li>돈까스</li>
                 <li>군만두</li>
@@ -21,10 +39,17 @@
     </div>
 
     <script>
-        const $menu = document.querySelector('.title');
+        const $title = document.querySelector('.title');
         const $ul = document.querySelector('ul');
-        $menu.onclick=function(){
-            $ul.style.display='none';
+        const $triangle = document.querySelector('.triangle');
+        $title.onclick=function(){
+            if($triangle.classList.contains('rotate')){
+                $triangle.classList.remove('rotate');
+                $ul.classList.add('hide');
+            }else{
+                $triangle.classList.add('rotate');
+                $ul.classList.remove('hide');
+            }
         }
     </script>
 </body>

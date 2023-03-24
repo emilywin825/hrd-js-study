@@ -41,12 +41,19 @@
         </div>
     </div>
 
+    
+
+
     <script>
+        /*
+            mouseover, mouseout    : 버블링 있음
+            mouseenter, mouseleave : 버블링 없음
+        */
         
         const $dropButton=document.querySelector('.dropdown');
         const $menu = document.getElementById('drop-content');
 
-        $dropButton.onclick=function(){
+        $dropButton.onmouseover=function(){
             $menu.style.display='none';
         }
     </script>
