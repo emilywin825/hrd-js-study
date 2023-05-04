@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "account": "abc1234",
+      "userName": "핑핑이",
+      "address": "캘리포니아"
+    },
+    {
+      "id": 2,
+      "account": "def999",
+      "userName": "BOBBY",
+      "address": "강남구"
+    },
+    {
+      "account": "11",
+      "userName": "퐁퐁이",
+      "address": "11",
+      "id": 3
+    }
+  ],
+  "boards": []
+}
